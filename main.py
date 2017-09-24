@@ -2,11 +2,17 @@ from tkinter import *
 
 root = Tk()
 
-one = Label(root, text="One", bg="red", fg="white")
-one.pack()
-two = Label(root, text="Two", bg="green", fg="black")
-two.pack(fill=X)
-three = Label(root, text="Three", bg="blue", fg="white")
-three.pack(side=LEFT, fill=Y)
+label_1 = Label(root, text="Name")
+label_2 = Label(root, text="Password")
+entry_1 = Entry(root)
+entry_2 = Entry(root)
+
+label_1.grid(row=0, sticky=E)
+label_2.grid(row=1, sticky=E)
+entry_1.grid(row=0, column=1)
+entry_2.grid(row=1, column=1)
+
+c = Checkbutton(root, text="Keep me logged in.")
+c.grid(columnspan=2)
 
 root.mainloop()
