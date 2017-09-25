@@ -1,19 +1,21 @@
 from tkinter import *
 
-class ShanesButtons:
-    def __init__(self, master):
-        frame = Frame(master)
-        frame.pack()
-
-        self.printButton = Button(frame, text="Print Message", command=self.printMessage)
-        self.printButton.pack(side=LEFT)
-
-        self.quitButton = Button(frame, text="Quit", command=frame.quit)
-        self.quitButton.pack(side=LEFT)
-
-    def printMessage(self):
-        print("Wow!")
+def doNothing():
+    print("Do nothing.")
 
 root = Tk()
-s = ShanesButtons(root)
+
+m = Menu(root)
+root.config(menu=m)
+
+subm = Menu(m)
+m.add_cascade(label="File", menu=subm)
+subm.add_command(label="New Project", command=doNothing)
+subm.add_separator()
+subm.add_command(label="New", command=doNothing)
+
+subm2 = Menu(m)
+m.add_cascade(label="Edit", menu=subm2)
+subm2.add_command(label="Redo", command=doNothing)
+
 root.mainloop()
