@@ -2,17 +2,19 @@ from tkinter import *
 
 root = Tk()
 
-def printName():
-    print("Hello my name is Shane!")
+def leftClick(event):
+    print("Left")
 
-def printName2(event):
-    print("Hello again!")
+def rightClick(event):
+    print("Right")
 
-button_1 = Button(root, text="Print Name", command=printName)
-button_1.pack()
+def middleClick(event):
+    print("Middle")
 
-button_2 = Button(root, text="Printt Name 2")
-button_2.bind("<Button-1>", printName2)
-button_2.pack()
+frame = Frame(root, width=300, height=250)
+frame.bind("<Button-1>", leftClick)
+frame.bind("<Button-2>", rightClick)
+frame.bind("<Button-3>", middleClick)
+frame.pack()
 
 root.mainloop()
